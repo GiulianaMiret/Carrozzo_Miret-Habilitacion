@@ -92,11 +92,23 @@
     <Compile Include="EntityFramework\Services\SocioRepository.cs" />
     <Compile Include="EntityFramework\Services\TipoBienRepository.cs" />
     <Compile Include="EntityFramework\Services\TransaccionRepository.cs" />
-    <Compile Include="IU\AgregarSocio.cs">
+    <Compile Include="IU\FrmAgregarSocio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IU\AgregarSocio.Designer.cs">
-      <DependentUpon>AgregarSocio.cs</DependentUpon>
+    <Compile Include="IU\FrmAgregarSocio.Designer.cs">
+      <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IU\FrmBajaSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmBajaSocio.Designer.cs">
+      <DependentUpon>FrmBajaSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IU\FrmFiltroSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmFiltroSocios.Designer.cs">
+      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmGestionSocios.cs">
       <SubType>Form</SubType>
@@ -118,8 +130,14 @@
     <Compile Include="InjectModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="IU\AgregarSocio.resx">
-      <DependentUpon>AgregarSocio.cs</DependentUpon>
+    <EmbeddedResource Include="IU\FrmAgregarSocio.resx">
+      <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmBajaSocio.resx">
+      <DependentUpon>FrmBajaSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmFiltroSocios.resx">
+      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmGestionSocios.resx">
       <DependentUpon>FrmGestionSocios.cs</DependentUpon>
@@ -153,8 +171,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\fondo3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

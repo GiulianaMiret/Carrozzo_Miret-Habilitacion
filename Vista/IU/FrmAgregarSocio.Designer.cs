@@ -50,6 +50,9 @@
             // 
             // lblNroSocio
             // 
+            this.lblNroSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNroSocio.AutoSize = true;
             this.lblNroSocio.BackColor = System.Drawing.Color.Transparent;
             this.lblNroSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,6 +64,9 @@
             // 
             // lblDni
             // 
+            this.lblDni.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDni.AutoSize = true;
             this.lblDni.BackColor = System.Drawing.Color.Transparent;
             this.lblDni.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,6 +78,9 @@
             // 
             // lblApellido
             // 
+            this.lblApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblApellido.AutoSize = true;
             this.lblApellido.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +92,9 @@
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,6 +106,9 @@
             // 
             // lblDomicilio
             // 
+            this.lblDomicilio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDomicilio.AutoSize = true;
             this.lblDomicilio.BackColor = System.Drawing.Color.Transparent;
             this.lblDomicilio.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,6 +120,9 @@
             // 
             // lblNacionalidad
             // 
+            this.lblNacionalidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNacionalidad.AutoSize = true;
             this.lblNacionalidad.BackColor = System.Drawing.Color.Transparent;
             this.lblNacionalidad.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,6 +134,9 @@
             // 
             // lblFechaIngreso
             // 
+            this.lblFechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaIngreso.AutoSize = true;
             this.lblFechaIngreso.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaIngreso.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,6 +148,8 @@
             // 
             // lblAgregarSocioTitulo
             // 
+            this.lblAgregarSocioTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAgregarSocioTitulo.AutoSize = true;
             this.lblAgregarSocioTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblAgregarSocioTitulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,33 +162,45 @@
             // 
             // tbDni
             // 
+            this.tbDni.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDni.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbDni.Location = new System.Drawing.Point(278, 121);
             this.tbDni.Name = "tbDni";
             this.tbDni.Size = new System.Drawing.Size(170, 30);
             this.tbDni.TabIndex = 2;
-            this.tbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDni_KeyPress);
+            this.tbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericFilter_KeyPress);
             // 
             // tbApellido
             // 
+            this.tbApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbApellido.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbApellido.Location = new System.Drawing.Point(278, 167);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(332, 30);
             this.tbApellido.TabIndex = 3;
-            this.tbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbApellido_KeyPress);
+            this.tbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterFilter_KeyPress);
             // 
             // tbNombre
             // 
+            this.tbNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNombre.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbNombre.Location = new System.Drawing.Point(278, 212);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(332, 30);
             this.tbNombre.TabIndex = 4;
-            this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombre_KeyPress);
+            this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterFilter_KeyPress);
             // 
             // tbDomicilio
             // 
+            this.tbDomicilio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDomicilio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbDomicilio.Location = new System.Drawing.Point(278, 256);
             this.tbDomicilio.Name = "tbDomicilio";
@@ -174,6 +209,9 @@
             // 
             // dtFechaIngreso
             // 
+            this.dtFechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFechaIngreso.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.dtFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaIngreso.Location = new System.Drawing.Point(278, 347);
@@ -184,19 +222,22 @@
             // 
             // cbNacionalidad
             // 
+            this.cbNacionalidad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNacionalidad.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.cbNacionalidad.FormattingEnabled = true;
             this.cbNacionalidad.Items.AddRange(new object[] {
             "Argentina",
-            "Bolivia",
-            "Brasil",
-            "Chile",
-            "Colombia",
-            "Paraguay",
-            "Preú",
-            "Uruguay",
-            "Venezuela"});
+            "Boliviana",
+            "Brasilera",
+            "Chilena",
+            "Colombiana",
+            "Paraguaya",
+            "Peruana",
+            "Uruguaya",
+            "Venezolana"});
             this.cbNacionalidad.Location = new System.Drawing.Point(278, 302);
             this.cbNacionalidad.Name = "cbNacionalidad";
             this.cbNacionalidad.Size = new System.Drawing.Size(332, 30);
@@ -229,12 +270,14 @@
             // 
             // tbNroSocio
             // 
+            this.tbNroSocio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tbNroSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbNroSocio.Location = new System.Drawing.Point(278, 74);
             this.tbNroSocio.Name = "tbNroSocio";
             this.tbNroSocio.Size = new System.Drawing.Size(93, 30);
             this.tbNroSocio.TabIndex = 0;
-            this.tbNroSocio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNroSocio_KeyPress);
+            this.tbNroSocio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericFilter_KeyPress);
             // 
             // FrmAgregarSocio
             // 

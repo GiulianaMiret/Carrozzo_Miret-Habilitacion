@@ -25,7 +25,7 @@ namespace Vista
             CompositionRoot.Wire(new InjectModule());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CompositionRoot.Resolve<FrmAgregarSocio>());
+            Application.Run(CompositionRoot.Resolve<FrmFiltroSocios>());
 
         }
     }

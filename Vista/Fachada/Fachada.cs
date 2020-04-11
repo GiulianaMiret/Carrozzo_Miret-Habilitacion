@@ -78,9 +78,9 @@ namespace Controlador
             }
         }
 
-        public Socio findByNroSocio(int pNroSocio)
+        public List<Socio> findByNroSocio(int pNroSocio)
         {
-            return cSocioRepository.Filter(x => x.NroSocio == pNroSocio).ToList().FirstOrDefault();
+            return cSocioRepository.Filter(x => x.NroSocio == pNroSocio).ToList();
         }
 
         public void updateSocio(Socio pSocio)
@@ -92,6 +92,32 @@ namespace Controlador
         public int getNextNroSocio()
         {
             return cSocioRepository.getMaxNroSocio() + 1;
+        }
+
+        public Boolean esSocioActivo(Socio pSocio)
+        {
+            Boolean estaActivo = true;
+            if(pSocio.MotivoRenuncia != null && pSocio.FechaRenuncia.Year > 1900)
+            {
+                estaActivo = false;
+            }
+            return estaActivo;
+        }
+
+        public Socio getLastSocioInactivoByNro(int pNroSocio)
+        {
+            return cSocioRepository.Filter(x => x.NroSocio == pNroSocio).ToList().
+                                           OrderByDescending(y => y.FechaRenuncia).ToList().FirstOrDefault();
+        }
+
+        public List<Socio> getAllSocios()
+        {
+            return cSocioRepository.GetAll().ToList();
+        }
+
+        public Socio findById(int pIdSocio)
+        {
+            return cSocioRepository.Filter(x => x.Id == pIdSocio).First();
         }
     }
 }

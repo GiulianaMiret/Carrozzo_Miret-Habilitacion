@@ -32,6 +32,7 @@
             this.btnAgregarSocio = new System.Windows.Forms.Button();
             this.lblAgregarSocioTitulo = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnBajaSocio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAgregarSocio
@@ -69,6 +70,18 @@
             this.btnGuardar.Text = "Volver Atrás";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
+            // btnBajaSocio
+            // 
+            this.btnBajaSocio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBajaSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnBajaSocio.Location = new System.Drawing.Point(241, 160);
+            this.btnBajaSocio.Name = "btnBajaSocio";
+            this.btnBajaSocio.Size = new System.Drawing.Size(255, 39);
+            this.btnBajaSocio.TabIndex = 10;
+            this.btnBajaSocio.Text = "Dar de Baja un Socio";
+            this.btnBajaSocio.UseVisualStyleBackColor = true;
+            this.btnBajaSocio.Click += new System.EventHandler(this.btnBajaSocio_Click);
+            // 
             // FrmGestionSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +89,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBajaSocio);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblAgregarSocioTitulo);
             this.Controls.Add(this.btnAgregarSocio);
@@ -93,5 +107,6 @@
         private System.Windows.Forms.Button btnAgregarSocio;
         private System.Windows.Forms.Label lblAgregarSocioTitulo;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnBajaSocio;
     }
 }

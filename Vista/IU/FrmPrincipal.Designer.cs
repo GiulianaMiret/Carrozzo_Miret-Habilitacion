@@ -34,7 +34,7 @@
             // 
             // btnSocios
             // 
-            this.btnSocios.Location = new System.Drawing.Point(329, 72);
+            this.btnSocios.Location = new System.Drawing.Point(380, 72);
             this.btnSocios.Name = "btnSocios";
             this.btnSocios.Size = new System.Drawing.Size(114, 23);
             this.btnSocios.TabIndex = 0;
@@ -50,6 +50,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSocios);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.Text = "Bomberos Voluntarios - Arroyo Barú";

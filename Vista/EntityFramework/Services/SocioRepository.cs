@@ -37,18 +37,11 @@ namespace Vista.EntityFramework.Services
 
         public void Update(Socio pSocio)
         {
-            List<Socio> socios = this.Filter(x => x.Dni == pSocio.Dni).ToList();
-            if (socios.Count() > 0)
+            if (cBomberosContext.Entry(pSocio).State == EntityState.Detached)
             {
-                throw new Exception("El DNI ya se encuentra registrado");
-            } else
-            {
-                if (cBomberosContext.Entry(pSocio).State == EntityState.Detached)
-                {
-                    cDbSet.Attach(pSocio);
-                }
-                cBomberosContext.Entry(pSocio).State = EntityState.Modified;
+                cDbSet.Attach(pSocio);
             }
+            cBomberosContext.Entry(pSocio).State = EntityState.Modified;
         }
 
         public IQueryable<Socio> Filter(Expression<Func<Socio, bool>> expresion)

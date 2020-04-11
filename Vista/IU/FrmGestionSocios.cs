@@ -27,5 +27,10 @@ namespace Vista.IU
         {
             CompositionRoot.Resolve<FrmAgregarSocio>().ShowDialog();
         }
+
+        private void btnBajaSocio_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
