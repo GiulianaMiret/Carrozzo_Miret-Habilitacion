@@ -23,6 +23,8 @@ namespace EntityFramework
 
         public DbSet<Rubro> TipoRubros { get; set; }
 
+        public DbSet<Persona> Personas { get; set; }
+
 
         public BomberosContext() : base("name=Default")
         {
@@ -39,6 +41,7 @@ namespace EntityFramework
             modelBuilder.Configurations.Add(new RubroMap());
             modelBuilder.Configurations.Add(new ModificacionMap());
             modelBuilder.Configurations.Add(new TipoBienMap());
+            modelBuilder.Configurations.Add(new PersonaMap());
             base.OnModelCreating(modelBuilder);
         }
 

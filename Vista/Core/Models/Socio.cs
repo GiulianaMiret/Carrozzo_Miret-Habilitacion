@@ -10,17 +10,7 @@ namespace Vista.Core.Models
     {
         public int Id { get; set; }
 
-        public int Dni { get; set; }
-
         public int NroSocio { get; set; }
-
-        public String Apellido { get; set; }
-
-        public String Nombre { get; set; }
-
-        public String Domicilio { get; set; }
-
-        public String Nacionalidad { get; set; }
 
         public DateTime FechaIngreso { get; set; }
 
@@ -29,5 +19,7 @@ namespace Vista.Core.Models
         public String MotivoRenuncia { get; set; }
 
         public virtual ICollection<Pago> Pagos { get; set; }
+
+        public virtual Persona Persona { get; set; }
     }
 }

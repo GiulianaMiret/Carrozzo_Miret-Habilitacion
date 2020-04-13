@@ -90,59 +90,78 @@ namespace Vista.IU
 
                 Socio socio = new Socio();
                 socio.NroSocio = nroSocio;
-                socio.Apellido = tbApellido.Text;
-                socio.Nombre = tbNombre.Text;
-                socio.Dni = pDNI; ;
-                socio.Domicilio = tbDomicilio.Text;
-                socio.Nacionalidad = cbNacionalidad.Text;
                 socio.FechaIngreso = dtFechaIngreso.Value.Date;
+
+                Persona persona = cFachada.findPersonaByDni(pDNI);
+                if(persona != null)
+                {
+                    DialogResult dialogResult = MessageBox.Show("La persona ya está registrada, ¿Desea actualizar sus datos?",
+                                            "PERSONA EXISTENTE",
+                                                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    switch (dialogResult)
+                    {
+                        case DialogResult.Yes:
+                            persona.Apellido = tbApellido.Text;
+                            persona.Nombre = tbNombre.Text;
+                            persona.Domicilio = tbDomicilio.Text;
+                            persona.Nacionalidad = cbNacionalidad.Text;
+                            break;
+                        case DialogResult.No:
+                            break;
+                    }
+                } else
+                {
+                    persona.Apellido = tbApellido.Text;
+                    persona.Nombre = tbNombre.Text;
+                    persona.Dni = pDNI;
+                    persona.Domicilio = tbDomicilio.Text;
+                    persona.Nacionalidad = cbNacionalidad.Text;
+                    cFachada.addPersona(persona);
+                }
+                socio.Persona = persona;
+                
 
                 IEnumerable<Socio> sociosPorNumero = cFachada.findByNroSocio(nroSocio);
                 if(sociosPorNumero.Count() > 0)
                 {
-                    int cantidadActivos = 0;
-
                     string strMensaje;
 
-                    foreach (Socio bSocio in sociosPorNumero)
+                    Socio socioActivo = sociosPorNumero.Where(x => cFachada.esSocioActivo(x)).FirstOrDefault(); ;
+                    if(socioActivo != null)
                     {
-                        if (cFachada.esSocioActivo(bSocio))
-                        {
-                            strMensaje = string.Format("El número de Socio: {1} pertenece a un Socio ACTIVO: {2}{0}{0}¿Desea dar de baja a este socio?", 
-                                Environment.NewLine, bSocio.NroSocio, string.Concat(bSocio.Nombre, " ", bSocio.Apellido));
+                        strMensaje = string.Format("El número de Socio: {1} pertenece a un Socio ACTIVO: {2}{0}{0}¿Desea dar de baja a este socio?",
+                                Environment.NewLine, socioActivo.NroSocio, 
+                                string.Concat(socioActivo.Persona.Nombre, " ", socioActivo.Persona.Apellido));
 
-                            DialogResult dialogResult = MessageBox.Show(strMensaje,
-                            "SOCIO ACTIVO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                            switch (dialogResult)
-                            {
-                                case DialogResult.Yes:
-                                    FrmBajaSocio frmBajaSocio = CompositionRoot.Resolve<FrmBajaSocio>();
-                                    frmBajaSocio.cSocio = bSocio;
-                                    frmBajaSocio.ShowDialog();
-                                    if (!cFachada.esSocioActivo(bSocio))
-                                    {
-                                        cFachada.addSocio(socio);
-                                        strMensaje = string.Format("Se dió de baja a:{0} y se guardó a: {1} de manera exitosa",
-                                            string.Concat(bSocio.Nombre, " ", bSocio.Apellido),
-                                            string.Concat(socio.Nombre, " ", socio.Apellido));
-                                        MessageBox.Show(strMensaje,
-                                            "ALTA/BAJA EXITOSAS",
-                                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        this.Clear();
-                                    }
-                                    break;
-                                case DialogResult.No:
-                                    break;
-                            }
-                            cantidadActivos++;
-                            break;
+                        DialogResult dialogResult = MessageBox.Show(strMensaje,
+                        "SOCIO ACTIVO", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                        switch (dialogResult)
+                        {
+                            case DialogResult.Yes:
+                                FrmBajaSocio frmBajaSocio = CompositionRoot.Resolve<FrmBajaSocio>();
+                                frmBajaSocio.cSocio = socioActivo;
+                                frmBajaSocio.ShowDialog();
+                                if (!cFachada.esSocioActivo(socioActivo))
+                                {
+                                    cFachada.addSocio(socio);
+                                    strMensaje = string.Format("Se dió de baja a:{0} y se guardó a: {1} de manera exitosa",
+                                        string.Concat(socioActivo.Persona.Nombre, " ", socioActivo.Persona.Apellido),
+                                        string.Concat(persona.Nombre, " ", persona.Apellido));
+                                    MessageBox.Show(strMensaje,
+                                        "ALTA/BAJA EXITOSAS",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.Clear();
+                                }
+                                break;
+                            case DialogResult.No:
+                                break;
                         }
-                    }
-                    if(cantidadActivos == 0)
+                    } else
                     {
                         Socio mSocio = cFachada.getLastSocioInactivoByNro(nroSocio);
                         strMensaje = string.Format("El número de Socio: {1} pertenecía a: {2}{0}{0}¿Desea reasignarlo?",
-                           Environment.NewLine, mSocio.NroSocio, string.Concat(mSocio.Nombre, " ", mSocio.Apellido));
+                           Environment.NewLine, mSocio.NroSocio, string.Concat(mSocio.Persona.Nombre, " ", mSocio.Persona.Apellido));
 
                         DialogResult dialogResult = MessageBox.Show(strMensaje,
                         "Número de Socio Existente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -157,7 +176,6 @@ namespace Vista.IU
                             case DialogResult.No:
                                 break;
                         }
-
                     }
                 } else
                 {
