@@ -45,6 +45,14 @@
     <Reference Include="HtmlAgilityPack, Version=1.5.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.5.1\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -96,6 +104,7 @@
     <Compile Include="EntityFramework\Services\SocioRepository.cs" />
     <Compile Include="EntityFramework\Services\TipoBienRepository.cs" />
     <Compile Include="EntityFramework\Services\TransaccionRepository.cs" />
+    <Compile Include="Fachada\Reportes.cs" />
     <Compile Include="IU\FrmAgregarSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +117,11 @@
     <Compile Include="IU\FrmBajaSocio.Designer.cs">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="IU\FrmFiltroSocios.cs">
+    <Compile Include="IU\FrmGestionSocios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IU\FrmFiltroSocios.Designer.cs">
-      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    <Compile Include="IU\FrmGestionSocios.Designer.cs">
+      <DependentUpon>FrmGestionSocios.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmModificarSocio.cs">
       <SubType>Form</SubType>
@@ -140,8 +149,8 @@
     <EmbeddedResource Include="IU\FrmBajaSocio.resx">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IU\FrmFiltroSocios.resx">
-      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    <EmbeddedResource Include="IU\FrmGestionSocios.resx">
+      <DependentUpon>FrmGestionSocios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmModificarSocio.resx">
       <DependentUpon>FrmModificarSocio.cs</DependentUpon>
@@ -175,7 +184,10 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="itextsharp.dll" />
+    <Content Include="itextsharp.pdfa.dll" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo3.png" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using Controlador;
-using log4net;
+﻿using log4net;
 using Ninject;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,4 @@
-﻿using Controlador;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista.Core.Models;
+using Vista.Fachada;
 
 namespace Vista.IU
 {
-    public partial class FrmFiltroSocios : Form
+    public partial class FrmGestionSocios : Form
     {
-        private readonly Fachada cFachada;
+        private readonly Fachada.Fachada cFachada;
         private readonly Vista.Logger.ILogger cLogger;
 
-        public FrmFiltroSocios(Fachada pFachada, Logger.ILogger pLogger)
+        public FrmGestionSocios(Fachada.Fachada pFachada, Logger.ILogger pLogger)
         {
             cFachada = pFachada;
             cLogger = pLogger;
@@ -225,6 +225,7 @@ namespace Vista.IU
             foreach (Socio socio in pSociosList)
             {
                 DataGridViewObject dgvObject = new DataGridViewObject();
+                dgvObject.Id = socio.Id;
                 dgvObject.NroSocio = socio.NroSocio;
                 dgvObject.DNI = socio.Persona.Dni;
                 dgvObject.Nombre = socio.Persona.Nombre;
@@ -268,13 +269,33 @@ namespace Vista.IU
 
 
 
-
-
-
+        private void btnReporteSocio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnBuscarSocios_Click(new object(), new EventArgs());
+                DialogResult dialogResult = MessageBox.Show("Se imprimirán los socios que aparecen en pantalla, ¿Desea continuar?",
+                                        "REPORTE DE SOCIOS", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                switch (dialogResult)
+                {
+                    case DialogResult.Yes:
+                        Reportes reporte = new Reportes();
+                        reporte.generarReporteSocios(dgvResultadoSocios);
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error. Contacte a su administrador.");
+            }
+        }
 
 
         private class DataGridViewObject
         {
+            public int Id { get; set; }
             public int NroSocio { get; set; }
             public int DNI { get; set; }
             public String Nombre { get; set; }
@@ -285,5 +306,7 @@ namespace Vista.IU
             public String MotivoRenuncia { get; set; }
             public String Estado { get; set; }
         }
+
+
     }
 }

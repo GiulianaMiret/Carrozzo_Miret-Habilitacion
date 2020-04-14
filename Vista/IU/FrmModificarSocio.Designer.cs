@@ -229,13 +229,12 @@
             // 
             // lblModificarSocioTitulo
             // 
-            this.lblModificarSocioTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblModificarSocioTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblModificarSocioTitulo.AutoSize = true;
             this.lblModificarSocioTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblModificarSocioTitulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModificarSocioTitulo.ForeColor = System.Drawing.Color.Navy;
-            this.lblModificarSocioTitulo.Location = new System.Drawing.Point(308, 26);
+            this.lblModificarSocioTitulo.Location = new System.Drawing.Point(277, 24);
             this.lblModificarSocioTitulo.Name = "lblModificarSocioTitulo";
             this.lblModificarSocioTitulo.Size = new System.Drawing.Size(234, 32);
             this.lblModificarSocioTitulo.TabIndex = 9;
@@ -307,7 +306,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmModificarSocio";
-            this.Text = "Modificar Socio";
+            this.Text = "Bomberos Voluntarios - Arroyo Barú";
             this.Load += new System.EventHandler(this.FrmModificarSocio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

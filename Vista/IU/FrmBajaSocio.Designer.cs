@@ -56,8 +56,7 @@
             // 
             // lblBajaSocioTitulo
             // 
-            this.lblBajaSocioTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBajaSocioTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBajaSocioTitulo.AutoSize = true;
             this.lblBajaSocioTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblBajaSocioTitulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,7 +69,6 @@
             // 
             // dtFechaRenuncia
             // 
-            this.dtFechaRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFechaRenuncia.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.dtFechaRenuncia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaRenuncia.Location = new System.Drawing.Point(594, 104);
@@ -81,7 +79,8 @@
             // 
             // tbMotivoRenuncia
             // 
-            this.tbMotivoRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbMotivoRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMotivoRenuncia.Font = new System.Drawing.Font("Copperplate Gothic Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMotivoRenuncia.Location = new System.Drawing.Point(443, 193);
             this.tbMotivoRenuncia.Multiline = true;
@@ -191,7 +190,8 @@
             // 
             // lblFechaRenuncia
             // 
-            this.lblFechaRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaRenuncia.AutoSize = true;
             this.lblFechaRenuncia.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaRenuncia.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +203,8 @@
             // 
             // lblMotivoRenuncia
             // 
-            this.lblMotivoRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMotivoRenuncia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMotivoRenuncia.AutoSize = true;
             this.lblMotivoRenuncia.BackColor = System.Drawing.Color.Transparent;
             this.lblMotivoRenuncia.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -344,6 +345,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -357,6 +359,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnGuardar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.btnGuardar.Location = new System.Drawing.Point(225, 405);
@@ -385,7 +388,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmBajaSocio";
-            this.Text = "Baja Socio";
+            this.Text = "Bomberos Voluntarios - Arroyo Barú";
             this.Load += new System.EventHandler(this.FrmBajaSocio_Load);
             this.groupBoxDatoSocio.ResumeLayout(false);
             this.groupBoxDatoSocio.PerformLayout();

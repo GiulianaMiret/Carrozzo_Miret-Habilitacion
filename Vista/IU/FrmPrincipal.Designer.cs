@@ -34,7 +34,8 @@
             // 
             // btnSocios
             // 
-            this.btnSocios.Location = new System.Drawing.Point(380, 72);
+            this.btnSocios.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSocios.Location = new System.Drawing.Point(554, 63);
             this.btnSocios.Name = "btnSocios";
             this.btnSocios.Size = new System.Drawing.Size(114, 23);
             this.btnSocios.TabIndex = 0;

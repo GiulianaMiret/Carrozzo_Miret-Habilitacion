@@ -1,6 +1,6 @@
 ﻿namespace Vista.IU
 {
-    partial class FrmFiltroSocios
+    partial class FrmGestionSocios
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFiltroSocios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionSocios));
             this.lblAgregarSocioTitulo = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbApellido = new System.Windows.Forms.TextBox();
@@ -42,15 +42,7 @@
             this.lblDni = new System.Windows.Forms.Label();
             this.lblNroSocio = new System.Windows.Forms.Label();
             this.dgvResultadoSocios = new System.Windows.Forms.DataGridView();
-            this.btnBuscarSocios = new System.Windows.Forms.Button();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnBajaSocio = new System.Windows.Forms.Button();
-            this.lblEstadoSocio = new System.Windows.Forms.Label();
-            this.cbEstadoSocio = new System.Windows.Forms.ComboBox();
-            this.btnAgregarSocio = new System.Windows.Forms.Button();
-            this.btnReactivar = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NroSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,20 +52,33 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRenuncia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotivoRenuncia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscarSocios = new System.Windows.Forms.Button();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBajaSocio = new System.Windows.Forms.Button();
+            this.lblEstadoSocio = new System.Windows.Forms.Label();
+            this.cbEstadoSocio = new System.Windows.Forms.ComboBox();
+            this.btnAgregarSocio = new System.Windows.Forms.Button();
+            this.btnReactivar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReporteSocio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoSocios)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAgregarSocioTitulo
             // 
+            this.lblAgregarSocioTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAgregarSocioTitulo.AutoSize = true;
             this.lblAgregarSocioTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblAgregarSocioTitulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgregarSocioTitulo.ForeColor = System.Drawing.Color.Navy;
-            this.lblAgregarSocioTitulo.Location = new System.Drawing.Point(330, 9);
+            this.lblAgregarSocioTitulo.Location = new System.Drawing.Point(385, 9);
             this.lblAgregarSocioTitulo.Name = "lblAgregarSocioTitulo";
-            this.lblAgregarSocioTitulo.Size = new System.Drawing.Size(102, 32);
+            this.lblAgregarSocioTitulo.Size = new System.Drawing.Size(258, 32);
             this.lblAgregarSocioTitulo.TabIndex = 2;
-            this.lblAgregarSocioTitulo.Text = "Socios";
+            this.lblAgregarSocioTitulo.Text = "Gestión de Socios";
             // 
             // tbNombre
             // 
@@ -83,7 +88,7 @@
             this.tbNombre.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbNombre.Location = new System.Drawing.Point(124, 138);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(490, 30);
+            this.tbNombre.Size = new System.Drawing.Size(549, 30);
             this.tbNombre.TabIndex = 3;
             this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterFilter_KeyPress);
             // 
@@ -95,7 +100,7 @@
             this.tbApellido.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbApellido.Location = new System.Drawing.Point(124, 102);
             this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(490, 30);
+            this.tbApellido.Size = new System.Drawing.Size(549, 30);
             this.tbApellido.TabIndex = 2;
             this.tbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.letterFilter_KeyPress);
             // 
@@ -107,7 +112,7 @@
             this.tbDni.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
             this.tbDni.Location = new System.Drawing.Point(286, 66);
             this.tbDni.Name = "tbDni";
-            this.tbDni.Size = new System.Drawing.Size(328, 30);
+            this.tbDni.Size = new System.Drawing.Size(387, 30);
             this.tbDni.TabIndex = 1;
             this.tbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericFilter_KeyPress);
             // 
@@ -182,6 +187,9 @@
             // 
             this.dgvResultadoSocios.AllowUserToAddRows = false;
             this.dgvResultadoSocios.AllowUserToDeleteRows = false;
+            this.dgvResultadoSocios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvResultadoSocios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultadoSocios.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -194,6 +202,7 @@
             this.dgvResultadoSocios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResultadoSocios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultadoSocios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.NroSocio,
             this.Dni,
             this.Nombre,
@@ -218,127 +227,16 @@
             this.dgvResultadoSocios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvResultadoSocios.RowHeadersVisible = false;
             this.dgvResultadoSocios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultadoSocios.Size = new System.Drawing.Size(854, 210);
+            this.dgvResultadoSocios.Size = new System.Drawing.Size(765, 210);
             this.dgvResultadoSocios.TabIndex = 13;
             // 
-            // btnBuscarSocios
+            // Id
             // 
-            this.btnBuscarSocios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnBuscarSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarSocios.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnBuscarSocios.Location = new System.Drawing.Point(632, 124);
-            this.btnBuscarSocios.Name = "btnBuscarSocios";
-            this.btnBuscarSocios.Size = new System.Drawing.Size(119, 44);
-            this.btnBuscarSocios.TabIndex = 4;
-            this.btnBuscarSocios.Text = "Buscar";
-            this.btnBuscarSocios.UseVisualStyleBackColor = false;
-            this.btnBuscarSocios.Click += new System.EventHandler(this.btnBuscarSocios_Click);
-            // 
-            // btnLimpiarFiltros
-            // 
-            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.Silver;
-            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Lucida Fax", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(766, 124);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(119, 44);
-            this.btnLimpiarFiltros.TabIndex = 5;
-            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Navy;
-            this.btnCancelar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(695, 417);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(136, 33);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnModificar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnModificar.Location = new System.Drawing.Point(308, 417);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(136, 33);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificarSocio_Click);
-            // 
-            // btnBajaSocio
-            // 
-            this.btnBajaSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnBajaSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnBajaSocio.Location = new System.Drawing.Point(23, 417);
-            this.btnBajaSocio.Name = "btnBajaSocio";
-            this.btnBajaSocio.Size = new System.Drawing.Size(136, 33);
-            this.btnBajaSocio.TabIndex = 16;
-            this.btnBajaSocio.Text = "Dar de Baja";
-            this.btnBajaSocio.UseVisualStyleBackColor = false;
-            this.btnBajaSocio.Click += new System.EventHandler(this.btnBajaSocio_Click);
-            // 
-            // lblEstadoSocio
-            // 
-            this.lblEstadoSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEstadoSocio.AutoSize = true;
-            this.lblEstadoSocio.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstadoSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoSocio.Location = new System.Drawing.Point(658, 69);
-            this.lblEstadoSocio.Name = "lblEstadoSocio";
-            this.lblEstadoSocio.Size = new System.Drawing.Size(75, 22);
-            this.lblEstadoSocio.TabIndex = 17;
-            this.lblEstadoSocio.Text = "Estado";
-            // 
-            // cbEstadoSocio
-            // 
-            this.cbEstadoSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEstadoSocio.BackColor = System.Drawing.SystemColors.Menu;
-            this.cbEstadoSocio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEstadoSocio.Font = new System.Drawing.Font("Lucida Fax", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstadoSocio.FormattingEnabled = true;
-            this.cbEstadoSocio.Items.AddRange(new object[] {
-            "ACTIVOS",
-            "DADOS DE BAJA",
-            "TODOS"});
-            this.cbEstadoSocio.Location = new System.Drawing.Point(735, 67);
-            this.cbEstadoSocio.Name = "cbEstadoSocio";
-            this.cbEstadoSocio.Size = new System.Drawing.Size(155, 25);
-            this.cbEstadoSocio.TabIndex = 18;
-            // 
-            // btnAgregarSocio
-            // 
-            this.btnAgregarSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAgregarSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnAgregarSocio.Location = new System.Drawing.Point(450, 417);
-            this.btnAgregarSocio.Name = "btnAgregarSocio";
-            this.btnAgregarSocio.Size = new System.Drawing.Size(149, 33);
-            this.btnAgregarSocio.TabIndex = 19;
-            this.btnAgregarSocio.Text = "Nuevo Socio";
-            this.btnAgregarSocio.UseVisualStyleBackColor = false;
-            this.btnAgregarSocio.Click += new System.EventHandler(this.btnAgregarSocio_Click);
-            // 
-            // btnReactivar
-            // 
-            this.btnReactivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnReactivar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
-            this.btnReactivar.Location = new System.Drawing.Point(165, 417);
-            this.btnReactivar.Name = "btnReactivar";
-            this.btnReactivar.Size = new System.Drawing.Size(136, 33);
-            this.btnReactivar.TabIndex = 20;
-            this.btnReactivar.Text = "Reactivar";
-            this.btnReactivar.UseVisualStyleBackColor = false;
-            this.btnReactivar.Click += new System.EventHandler(this.btnReactivar_Click);
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // NroSocio
             // 
@@ -408,13 +306,160 @@
             this.MotivoRenuncia.ReadOnly = true;
             this.MotivoRenuncia.Visible = false;
             // 
+            // btnBuscarSocios
+            // 
+            this.btnBuscarSocios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarSocios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnBuscarSocios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarSocios.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnBuscarSocios.Location = new System.Drawing.Point(691, 124);
+            this.btnBuscarSocios.Name = "btnBuscarSocios";
+            this.btnBuscarSocios.Size = new System.Drawing.Size(119, 44);
+            this.btnBuscarSocios.TabIndex = 4;
+            this.btnBuscarSocios.Text = "Buscar";
+            this.btnBuscarSocios.UseVisualStyleBackColor = false;
+            this.btnBuscarSocios.Click += new System.EventHandler(this.btnBuscarSocios_Click);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiarFiltros.BackColor = System.Drawing.Color.Silver;
+            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Lucida Fax", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(825, 124);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(119, 44);
+            this.btnLimpiarFiltros.TabIndex = 5;
+            this.btnLimpiarFiltros.Text = "Limpiar Filtros";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancelar.BackColor = System.Drawing.Color.Navy;
+            this.btnCancelar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(724, 417);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(136, 33);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnModificar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnModificar.Location = new System.Drawing.Point(337, 417);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(136, 33);
+            this.btnModificar.TabIndex = 14;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificarSocio_Click);
+            // 
+            // btnBajaSocio
+            // 
+            this.btnBajaSocio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnBajaSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnBajaSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnBajaSocio.Location = new System.Drawing.Point(52, 417);
+            this.btnBajaSocio.Name = "btnBajaSocio";
+            this.btnBajaSocio.Size = new System.Drawing.Size(136, 33);
+            this.btnBajaSocio.TabIndex = 16;
+            this.btnBajaSocio.Text = "Dar de Baja";
+            this.btnBajaSocio.UseVisualStyleBackColor = false;
+            this.btnBajaSocio.Click += new System.EventHandler(this.btnBajaSocio_Click);
+            // 
+            // lblEstadoSocio
+            // 
+            this.lblEstadoSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEstadoSocio.AutoSize = true;
+            this.lblEstadoSocio.BackColor = System.Drawing.Color.Transparent;
+            this.lblEstadoSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadoSocio.Location = new System.Drawing.Point(717, 69);
+            this.lblEstadoSocio.Name = "lblEstadoSocio";
+            this.lblEstadoSocio.Size = new System.Drawing.Size(75, 22);
+            this.lblEstadoSocio.TabIndex = 17;
+            this.lblEstadoSocio.Text = "Estado";
+            // 
+            // cbEstadoSocio
+            // 
+            this.cbEstadoSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEstadoSocio.BackColor = System.Drawing.SystemColors.Menu;
+            this.cbEstadoSocio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEstadoSocio.Font = new System.Drawing.Font("Lucida Fax", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstadoSocio.FormattingEnabled = true;
+            this.cbEstadoSocio.Items.AddRange(new object[] {
+            "ACTIVOS",
+            "DADOS DE BAJA",
+            "TODOS"});
+            this.cbEstadoSocio.Location = new System.Drawing.Point(794, 67);
+            this.cbEstadoSocio.Name = "cbEstadoSocio";
+            this.cbEstadoSocio.Size = new System.Drawing.Size(155, 25);
+            this.cbEstadoSocio.TabIndex = 18;
+            // 
+            // btnAgregarSocio
+            // 
+            this.btnAgregarSocio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAgregarSocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAgregarSocio.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnAgregarSocio.Location = new System.Drawing.Point(479, 417);
+            this.btnAgregarSocio.Name = "btnAgregarSocio";
+            this.btnAgregarSocio.Size = new System.Drawing.Size(149, 33);
+            this.btnAgregarSocio.TabIndex = 19;
+            this.btnAgregarSocio.Text = "Nuevo Socio";
+            this.btnAgregarSocio.UseVisualStyleBackColor = false;
+            this.btnAgregarSocio.Click += new System.EventHandler(this.btnAgregarSocio_Click);
+            // 
+            // btnReactivar
+            // 
+            this.btnReactivar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReactivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnReactivar.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnReactivar.Location = new System.Drawing.Point(194, 417);
+            this.btnReactivar.Name = "btnReactivar";
+            this.btnReactivar.Size = new System.Drawing.Size(136, 33);
+            this.btnReactivar.TabIndex = 20;
+            this.btnReactivar.Text = "Reactivar";
+            this.btnReactivar.UseVisualStyleBackColor = false;
+            this.btnReactivar.Click += new System.EventHandler(this.btnReactivar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnReporteSocio);
+            this.groupBox1.Font = new System.Drawing.Font("Lucida Fax", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.groupBox1.Location = new System.Drawing.Point(794, 187);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(211, 187);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Reportes PDF";
+            // 
+            // btnReporteSocio
+            // 
+            this.btnReporteSocio.Font = new System.Drawing.Font("Lucida Fax", 11.25F);
+            this.btnReporteSocio.Location = new System.Drawing.Point(19, 64);
+            this.btnReporteSocio.Name = "btnReporteSocio";
+            this.btnReporteSocio.Size = new System.Drawing.Size(174, 43);
+            this.btnReporteSocio.TabIndex = 0;
+            this.btnReporteSocio.Text = "Listado de Socios";
+            this.btnReporteSocio.UseVisualStyleBackColor = true;
+            this.btnReporteSocio.Click += new System.EventHandler(this.btnReporteSocio_Click);
+            // 
             // FrmFiltroSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources.fondo3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(958, 462);
+            this.ClientSize = new System.Drawing.Size(1017, 462);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnReactivar);
             this.Controls.Add(this.btnAgregarSocio);
             this.Controls.Add(this.cbEstadoSocio);
@@ -437,9 +482,10 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFiltroSocios";
-            this.Text = "Socios";
+            this.Text = "Bomberos Voluntarios - Arroyo Barú";
             this.Load += new System.EventHandler(this.FrmFiltroSocios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoSocios)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,6 +512,7 @@
         private System.Windows.Forms.ComboBox cbEstadoSocio;
         private System.Windows.Forms.Button btnAgregarSocio;
         private System.Windows.Forms.Button btnReactivar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroSocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -475,5 +522,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRenuncia;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotivoRenuncia;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnReporteSocio;
     }
 }

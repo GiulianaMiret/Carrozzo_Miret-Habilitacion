@@ -13,7 +13,7 @@ using Vista.Core.Models;
 using System.Data.Entity;
 using System.Drawing;
 
-namespace Controlador
+namespace Vista.Fachada
 {
     /// <summary>
     /// Clase fachada, de donde se va a llamar a los repositorios para realizar las operaciones
@@ -132,12 +132,11 @@ namespace Controlador
 
         public Boolean esSocioActivo(Socio pSocio)
         {
-            Boolean estaActivo = true;
-            if (pSocio.MotivoRenuncia != null && pSocio.FechaRenuncia.Year > 1900)
+            if ((pSocio.MotivoRenuncia != null || pSocio.MotivoRenuncia != "") && pSocio.FechaRenuncia.Year > 1900)
             {
-                estaActivo = false;
+                return false;
             }
-            return estaActivo;
+            return true;
         }
 
         public Socio getLastSocioInactivoByNro(int pNroSocio)

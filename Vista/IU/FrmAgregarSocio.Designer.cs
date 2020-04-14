@@ -148,8 +148,7 @@
             // 
             // lblAgregarSocioTitulo
             // 
-            this.lblAgregarSocioTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAgregarSocioTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAgregarSocioTitulo.AutoSize = true;
             this.lblAgregarSocioTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblAgregarSocioTitulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,7 +305,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgregarSocio";
-            this.Text = "Bomberos Voluntarios Arroyo Barú - AGREGAR SOCIO";
+            this.Text = "Bomberos Voluntarios - Arroyo Barú";
             this.Load += new System.EventHandler(this.FrmAgregarSocio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
