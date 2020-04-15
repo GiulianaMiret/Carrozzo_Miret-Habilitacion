@@ -129,7 +129,6 @@
     <Compile Include="IU\FrmBajaSocio.Designer.cs">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="IU\FrmGestionPagos.cs">
     <Compile Include="IU\FrmEditarRubro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +136,7 @@
       <DependentUpon>FrmEditarRubro.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmFiltroSocios.cs">
+    <Compile Include="IU\FrmGestionPagos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IU\FrmGestionPagos.Designer.cs">
