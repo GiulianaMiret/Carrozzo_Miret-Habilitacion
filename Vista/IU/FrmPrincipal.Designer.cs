@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.btnSocios = new System.Windows.Forms.Button();
+            this.btnRubros = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSocios
@@ -42,6 +43,16 @@
             this.btnSocios.UseVisualStyleBackColor = true;
             this.btnSocios.Click += new System.EventHandler(this.btnSocios_Click);
             // 
+            // btnRubros
+            // 
+            this.btnRubros.Location = new System.Drawing.Point(380, 115);
+            this.btnRubros.Name = "btnRubros";
+            this.btnRubros.Size = new System.Drawing.Size(114, 23);
+            this.btnRubros.TabIndex = 1;
+            this.btnRubros.Text = "Rubros";
+            this.btnRubros.UseVisualStyleBackColor = true;
+            this.btnRubros.Click += new System.EventHandler(this.btnRubros_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -49,6 +60,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRubros);
             this.Controls.Add(this.btnSocios);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -61,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSocios;
+        private System.Windows.Forms.Button btnRubros;
     }
 }

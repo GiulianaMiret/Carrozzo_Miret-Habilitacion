@@ -119,5 +119,56 @@ namespace Controlador
         {
             return cSocioRepository.Filter(x => x.Id == pIdSocio).First();
         }
+        
+        public void addRubro(Rubro pRubro)
+        {
+            try
+            {
+                cRepositoryBaseRubro.Add(pRubro);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Rubro> getAllRubros()
+        {
+            try
+            {
+                return cRepositoryBaseRubro.GetAll().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void deleteRubro(Rubro pRubro)
+        {
+            try
+            {
+                cRepositoryBaseRubro.DeleteById(pRubro.Id);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }        
+
+        public void updateRubro(Rubro pRubro)
+        {
+            try
+            {
+                cRepositoryBaseRubro.Update(pRubro);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

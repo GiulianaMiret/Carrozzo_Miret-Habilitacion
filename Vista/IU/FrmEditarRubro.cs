@@ -8,29 +8,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Core.Models;
 
 namespace Vista.IU
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmEditarRubro : Form
     {
         private readonly Fachada cFachada;
         private readonly Vista.Logger.ILogger cLogger;
+        public Rubro cRubroAEditar;
 
-        public FrmPrincipal(Fachada pFachada, Logger.ILogger pLogger)
+        public FrmEditarRubro(Fachada pFachada, Logger.ILogger pLogger)
         {
             cFachada = pFachada;
             cLogger = pLogger;
             InitializeComponent();
         }
 
-        private void btnSocios_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            CompositionRoot.Resolve<FrmGestionSocios>().ShowDialog();
+            cFachada.updateRubro(cRubroAEditar);
         }
 
-        private void btnRubros_Click(object sender, EventArgs e)
+        private void FrmEditarRubro_Load(object sender, EventArgs e)
         {
-            CompositionRoot.Resolve<FrmGestionRubros>().ShowDialog();
+            txtDescripcion.Text = cRubroAEditar.Descripcion;
         }
     }
 }

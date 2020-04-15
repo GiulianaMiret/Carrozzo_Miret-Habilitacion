@@ -98,17 +98,35 @@
     <Compile Include="IU\FrmAgregarSocio.Designer.cs">
       <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="IU\FrmAltaRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmAltaRubro.Designer.cs">
+      <DependentUpon>FrmAltaRubro.cs</DependentUpon>
+    </Compile>
     <Compile Include="IU\FrmBajaSocio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IU\FrmBajaSocio.Designer.cs">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="IU\FrmEditarRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmEditarRubro.Designer.cs">
+      <DependentUpon>FrmEditarRubro.cs</DependentUpon>
+    </Compile>
     <Compile Include="IU\FrmFiltroSocios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IU\FrmFiltroSocios.Designer.cs">
       <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IU\FrmGestionRubros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmGestionRubros.Designer.cs">
+      <DependentUpon>FrmGestionRubros.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmGestionSocios.cs">
       <SubType>Form</SubType>
@@ -133,11 +151,20 @@
     <EmbeddedResource Include="IU\FrmAgregarSocio.resx">
       <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmAltaRubro.resx">
+      <DependentUpon>FrmAltaRubro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmBajaSocio.resx">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmEditarRubro.resx">
+      <DependentUpon>FrmEditarRubro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmFiltroSocios.resx">
       <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmGestionRubros.resx">
+      <DependentUpon>FrmGestionRubros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmGestionSocios.resx">
       <DependentUpon>FrmGestionSocios.cs</DependentUpon>
