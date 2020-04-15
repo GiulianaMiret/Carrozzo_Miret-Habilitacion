@@ -30,18 +30,38 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.btnSocios = new System.Windows.Forms.Button();
+            this.btnPagos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSocios
             // 
             this.btnSocios.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSocios.Location = new System.Drawing.Point(554, 63);
+            this.btnSocios.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSocios.Image = ((System.Drawing.Image)(resources.GetObject("btnSocios.Image")));
+            this.btnSocios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSocios.Location = new System.Drawing.Point(660, 55);
             this.btnSocios.Name = "btnSocios";
-            this.btnSocios.Size = new System.Drawing.Size(114, 23);
+            this.btnSocios.Size = new System.Drawing.Size(265, 70);
             this.btnSocios.TabIndex = 0;
             this.btnSocios.Text = "Gestión de Socios";
+            this.btnSocios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSocios.UseVisualStyleBackColor = true;
             this.btnSocios.Click += new System.EventHandler(this.btnSocios_Click);
+            // 
+            // btnPagos
+            // 
+            this.btnPagos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPagos.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.Image = ((System.Drawing.Image)(resources.GetObject("btnPagos.Image")));
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(660, 172);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Size = new System.Drawing.Size(265, 70);
+            this.btnPagos.TabIndex = 1;
+            this.btnPagos.Text = "Gestión de Pagos";
+            this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPagos.UseVisualStyleBackColor = true;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
             // 
             // FrmPrincipal
             // 
@@ -49,12 +69,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1031, 450);
+            this.Controls.Add(this.btnPagos);
             this.Controls.Add(this.btnSocios);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.Text = "Bomberos Voluntarios - Arroyo Barú";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
@@ -62,5 +84,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSocios;
+        private System.Windows.Forms.Button btnPagos;
     }
 }

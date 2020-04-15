@@ -27,7 +27,11 @@ namespace Vista.IU
         private void btnSocios_Click(object sender, EventArgs e)
         {
             CompositionRoot.Resolve<FrmGestionSocios>().ShowDialog();
-            this.Close();
+        }
+
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            CompositionRoot.Resolve<FrmGestionPagos>().ShowDialog();
         }
     }
 }

@@ -111,11 +111,6 @@ namespace Vista.IU
             dgvResultadoSocios.DataSource = new List<DataGridViewObject>();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnModificarSocio_Click(object sender, EventArgs e)
         {
             if (dgvResultadoSocios.CurrentRow != null)

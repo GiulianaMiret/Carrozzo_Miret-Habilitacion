@@ -105,6 +105,12 @@
     <Compile Include="EntityFramework\Services\TipoBienRepository.cs" />
     <Compile Include="EntityFramework\Services\TransaccionRepository.cs" />
     <Compile Include="Fachada\Reportes.cs" />
+    <Compile Include="IU\FrmAgregarPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmAgregarPagos.Designer.cs">
+      <DependentUpon>FrmAgregarPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="IU\FrmAgregarSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="IU\FrmBajaSocio.Designer.cs">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IU\FrmGestionPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmGestionPagos.Designer.cs">
+      <DependentUpon>FrmGestionPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmGestionSocios.cs">
       <SubType>Form</SubType>
@@ -143,11 +155,17 @@
     <Compile Include="InjectModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="IU\FrmAgregarPagos.resx">
+      <DependentUpon>FrmAgregarPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmAgregarSocio.resx">
       <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmBajaSocio.resx">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmGestionPagos.resx">
+      <DependentUpon>FrmGestionPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmGestionSocios.resx">
       <DependentUpon>FrmGestionSocios.cs</DependentUpon>
@@ -187,6 +205,11 @@
   <ItemGroup>
     <Content Include="itextsharp.dll" />
     <Content Include="itextsharp.pdfa.dll" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\okIcon.png" />
+    <None Include="Resources\lupa1.png" />
+    <None Include="Resources\limpiar.png" />
+    <None Include="Resources\pdf.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo3.png" />
