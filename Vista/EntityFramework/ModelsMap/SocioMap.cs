@@ -18,13 +18,9 @@ namespace Vista.EntityFramework.ModelsMap
             this.Property(a => a.Id)
                             .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(p => p.Nombre)
-                            .IsRequired();
-
-            this.Property(p => p.Dni)
-                            .IsRequired();
-
             this.Property(x => x.FechaRenuncia).HasColumnType("datetime2");
+
+            this.HasRequired(x => x.Persona);
         }
     }
 }

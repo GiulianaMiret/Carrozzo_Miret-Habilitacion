@@ -45,6 +45,14 @@
     <Reference Include="HtmlAgilityPack, Version=1.5.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.5.1\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -68,6 +76,7 @@
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Core\Models\Modificacion.cs" />
     <Compile Include="Core\Models\Pago.cs" />
+    <Compile Include="Core\Models\Persona.cs" />
     <Compile Include="Core\Models\Rubro.cs" />
     <Compile Include="Core\Models\Socio.cs" />
     <Compile Include="BomberosContext.cs" />
@@ -75,23 +84,33 @@
     <Compile Include="Core\Models\Transaccion.cs" />
     <Compile Include="EntityFramework\ModelsMap\ModificacionMap.cs" />
     <Compile Include="EntityFramework\ModelsMap\PagoMap.cs" />
+    <Compile Include="EntityFramework\ModelsMap\PersonaMap.cs" />
     <Compile Include="EntityFramework\ModelsMap\RubroMap.cs" />
     <Compile Include="EntityFramework\ModelsMap\SocioMap.cs" />
     <Compile Include="EntityFramework\ModelsMap\TipoBienMap.cs" />
     <Compile Include="EntityFramework\ModelsMap\TransaccionMap.cs" />
     <Compile Include="EntityFramework\Services\IModificacionRespository.cs" />
     <Compile Include="EntityFramework\Services\IPagoRepository.cs" />
+    <Compile Include="EntityFramework\Services\IPersonaRepository.cs" />
     <Compile Include="EntityFramework\Services\IRubroRepository.cs" />
     <Compile Include="EntityFramework\Services\ISocioRepository.cs" />
     <Compile Include="EntityFramework\Services\ITipoBienRepository.cs" />
     <Compile Include="EntityFramework\Services\ITransaccionRepository.cs" />
     <Compile Include="EntityFramework\Services\ModificacionRepository.cs" />
     <Compile Include="EntityFramework\Services\PagoRepository.cs" />
+    <Compile Include="EntityFramework\Services\PersonaRepository.cs" />
     <Compile Include="EntityFramework\Services\RepositoryBase.cs" />
     <Compile Include="EntityFramework\Services\RubroRepository.cs" />
     <Compile Include="EntityFramework\Services\SocioRepository.cs" />
     <Compile Include="EntityFramework\Services\TipoBienRepository.cs" />
     <Compile Include="EntityFramework\Services\TransaccionRepository.cs" />
+    <Compile Include="Fachada\Reportes.cs" />
+    <Compile Include="IU\FrmAgregarPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmAgregarPagos.Designer.cs">
+      <DependentUpon>FrmAgregarPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="IU\FrmAgregarSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +129,7 @@
     <Compile Include="IU\FrmBajaSocio.Designer.cs">
       <DependentUpon>FrmBajaSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="IU\FrmGestionPagos.cs">
     <Compile Include="IU\FrmEditarRubro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +139,8 @@
     <Compile Include="IU\FrmFiltroSocios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IU\FrmFiltroSocios.Designer.cs">
-      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    <Compile Include="IU\FrmGestionPagos.Designer.cs">
+      <DependentUpon>FrmGestionPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmGestionRubros.cs">
       <SubType>Form</SubType>
@@ -133,6 +153,12 @@
     </Compile>
     <Compile Include="IU\FrmGestionSocios.Designer.cs">
       <DependentUpon>FrmGestionSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IU\FrmModificarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IU\FrmModificarSocio.Designer.cs">
+      <DependentUpon>FrmModificarSocio.cs</DependentUpon>
     </Compile>
     <Compile Include="IU\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -148,6 +174,9 @@
     <Compile Include="InjectModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="IU\FrmAgregarPagos.resx">
+      <DependentUpon>FrmAgregarPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmAgregarSocio.resx">
       <DependentUpon>FrmAgregarSocio.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,12 +191,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmFiltroSocios.resx">
       <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
+    <EmbeddedResource Include="IU\FrmGestionPagos.resx">
+      <DependentUpon>FrmGestionPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmGestionRubros.resx">
       <DependentUpon>FrmGestionRubros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmGestionSocios.resx">
       <DependentUpon>FrmGestionSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IU\FrmModificarSocio.resx">
+      <DependentUpon>FrmModificarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IU\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -198,7 +232,15 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="itextsharp.dll" />
+    <Content Include="itextsharp.pdfa.dll" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\okIcon.png" />
+    <None Include="Resources\lupa1.png" />
+    <None Include="Resources\limpiar.png" />
+    <None Include="Resources\pdf.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo3.png" />
   </ItemGroup>

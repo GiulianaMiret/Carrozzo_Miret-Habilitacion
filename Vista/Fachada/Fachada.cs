@@ -13,7 +13,7 @@ using Vista.Core.Models;
 using System.Data.Entity;
 using System.Drawing;
 
-namespace Controlador
+namespace Vista.Fachada
 {
     /// <summary>
     /// Clase fachada, de donde se va a llamar a los repositorios para realizar las operaciones
@@ -29,7 +29,10 @@ namespace Controlador
         private readonly ITipoBienRepository cTipoBienRepository;
         private readonly IModificacionRespository cModificacionRespository;
         private readonly IRubroRepository cRubroRepository;
+        private readonly IPersonaRepository cPersonaRepository;
+        private readonly IRepository<Persona> cRepositoryBasePersona;
         private readonly IRepository<Pago> cRepositoryBasePago;
+        private readonly IRepository<Socio> cRepositoryBaseSocio;
         private readonly IRepository<Transaccion> cRepositoryBaseTransaccion;
         private readonly IRepository<Rubro> cRepositoryBaseRubro;
         private readonly IRepository<Modificacion> cRepositoryBasModificacion;
@@ -44,7 +47,10 @@ namespace Controlador
                        ITipoBienRepository pTipoBienRepository,
                        IModificacionRespository pModificacionRespository,
                        IRubroRepository pRubroRepository,
+                       IPersonaRepository pPersonaRepository,
+                       IRepository<Persona> pRepositoryBasePersona,
                        IRepository<Pago> pRepositoryBasePago,
+                       IRepository<Socio> pRepositoryBaseSocio,
                        IRepository<Transaccion> pRepositoryBaseTransaccion,
                        IRepository<Rubro> pRepositoryBaseRubro,
                        IRepository<Modificacion> pRepositoryBasModificacion,
@@ -55,9 +61,12 @@ namespace Controlador
             cPagoRepository = pPagoRepository;
             cTransaccionRepository = pTransaccionRepository;
             cTipoBienRepository = pTipoBienRepository;
-            cModificacionRespository =pModificacionRespository;
+            cModificacionRespository = pModificacionRespository;
             cRubroRepository = pRubroRepository;
+            cPersonaRepository = pPersonaRepository;
+            cRepositoryBasePersona = pRepositoryBasePersona;
             cRepositoryBasePago = pRepositoryBasePago;
+            cRepositoryBaseSocio = pRepositoryBaseSocio;
             cRepositoryBaseTransaccion = pRepositoryBaseTransaccion;
             cRepositoryBaseRubro = pRepositoryBaseRubro;
             cRepositoryBasModificacion = pRepositoryBasModificacion;
@@ -69,10 +78,31 @@ namespace Controlador
         {
             try
             {
-                cSocioRepository.Add(pSocio);
-                cSocioRepository.SaveChanges();
+                cRepositoryBaseSocio.Add(pSocio);
+                cRepositoryBaseSocio.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void addPersona(Persona pPersona)
+        {
+            try
+            {
+                List<Persona> personas = cRepositoryBasePersona.Filter(x => x.Dni == pPersona.Dni).ToList();
+                if (personas.Count() > 0)
+                {
+                    throw new Exception("La persona ya existe");
+                }
+                else
+                {
+                    cRepositoryBasePersona.Add(pPersona);
+                    cRepositoryBasePersona.SaveChanges();
+                }
+            }
+            catch (Exception e)
             {
                 throw e;
             }
@@ -80,13 +110,19 @@ namespace Controlador
 
         public List<Socio> findByNroSocio(int pNroSocio)
         {
-            return cSocioRepository.Filter(x => x.NroSocio == pNroSocio).ToList();
+            return cRepositoryBaseSocio.Filter(x => x.NroSocio == pNroSocio).ToList();
         }
 
         public void updateSocio(Socio pSocio)
         {
-            cSocioRepository.Update(pSocio);
-            cSocioRepository.SaveChanges();
+            cRepositoryBaseSocio.Update(pSocio);
+            cRepositoryBaseSocio.SaveChanges();
+        }
+
+        public void updatePersona(Persona pPersona)
+        {
+            cRepositoryBasePersona.Update(pPersona);
+            cRepositoryBasePersona.SaveChanges();
         }
 
         public int getNextNroSocio()
@@ -96,28 +132,53 @@ namespace Controlador
 
         public Boolean esSocioActivo(Socio pSocio)
         {
-            Boolean estaActivo = true;
-            if(pSocio.MotivoRenuncia != null && pSocio.FechaRenuncia.Year > 1900)
+            if ((pSocio.MotivoRenuncia != null || pSocio.MotivoRenuncia != "") && pSocio.FechaRenuncia.Year > 1900)
             {
-                estaActivo = false;
+                return false;
             }
-            return estaActivo;
+            return true;
         }
 
         public Socio getLastSocioInactivoByNro(int pNroSocio)
         {
-            return cSocioRepository.Filter(x => x.NroSocio == pNroSocio).ToList().
+            return cRepositoryBaseSocio.Filter(x => x.NroSocio == pNroSocio && this.esSocioActivo(x)).ToList().
                                            OrderByDescending(y => y.FechaRenuncia).ToList().FirstOrDefault();
         }
 
         public List<Socio> getAllSocios()
         {
-            return cSocioRepository.GetAll().ToList();
+            return cRepositoryBaseSocio.GetAll().ToList();
         }
 
-        public Socio findById(int pIdSocio)
+        public Socio findSocioById(int pIdSocio)
         {
-            return cSocioRepository.Filter(x => x.Id == pIdSocio).First();
+            return cRepositoryBaseSocio.Filter(x => x.Id == pIdSocio).FirstOrDefault();
+        }
+
+        public Socio findSocioActivoByDni(int pDNISocio)
+        {
+            return cRepositoryBaseSocio.Filter(x => x.Persona.Dni == pDNISocio && esSocioActivo(x)).FirstOrDefault();
+        }
+
+        public void activarSocio(Socio pSocio)
+        {
+            try
+            {
+                pSocio.MotivoRenuncia = null;
+                pSocio.FechaRenuncia = new DateTime(0001, 01, 01, 00, 00, 00);
+                updatePersona(pSocio.Persona);
+                cRepositoryBaseSocio.Add(pSocio);
+                cRepositoryBaseSocio.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public Persona findPersonaByDni(int pDNI)
+        {
+            return cRepositoryBasePersona.Filter(x => x.Dni == pDNI).FirstOrDefault();
         }
         
         public void addRubro(Rubro pRubro)

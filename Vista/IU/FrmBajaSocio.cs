@@ -1,5 +1,4 @@
-﻿using Controlador;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +13,11 @@ namespace Vista.IU
 {
     public partial class FrmBajaSocio : Form
     {
-        private readonly Fachada cFachada;
+        private readonly Fachada.Fachada cFachada;
         private readonly Vista.Logger.ILogger cLogger;
         public Socio cSocio;
 
-        public FrmBajaSocio(Fachada pFachada, Logger.ILogger pLogger)
+        public FrmBajaSocio(Fachada.Fachada pFachada, Logger.ILogger pLogger)
         {
             cFachada = pFachada;
             cLogger = pLogger;
@@ -29,11 +28,11 @@ namespace Vista.IU
         {
             dtFechaRenuncia.Value = DateTime.Today;
             lblNroSocioValor.Text = cSocio.NroSocio.ToString();
-            lblDniValor.Text = cSocio.Dni.ToString();
-            lblApellidoValor.Text = cSocio.Apellido;
-            lblNombreValor.Text = cSocio.Nombre;
-            lblDomicilioValor.Text = cSocio.Domicilio;
-            lblNacionalidadValor.Text = cSocio.Nacionalidad;
+            lblDniValor.Text = cSocio.Persona.Dni.ToString();
+            lblApellidoValor.Text = cSocio.Persona.Apellido;
+            lblNombreValor.Text = cSocio.Persona.Nombre;
+            lblDomicilioValor.Text = cSocio.Persona.Domicilio;
+            lblNacionalidadValor.Text = cSocio.Persona.Nacionalidad;
             lblFechaIngresoValor.Text = string.Format("{0}/{1}/{2}", cSocio.FechaIngreso.Day, cSocio.FechaIngreso.Month, cSocio.FechaIngreso.Year);
         }
 

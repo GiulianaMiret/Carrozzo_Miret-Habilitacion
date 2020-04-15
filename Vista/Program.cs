@@ -1,5 +1,4 @@
-﻿using Controlador;
-using log4net;
+﻿using log4net;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -25,7 +24,7 @@ namespace Vista
             CompositionRoot.Wire(new InjectModule());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CompositionRoot.Resolve<FrmFiltroSocios>());
+            Application.Run(CompositionRoot.Resolve<FrmPrincipal>());
 
         }
     }

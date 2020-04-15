@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Ninject;
 using EntityFramework.Services;
 using EntityFramework;
-using Controlador;
 using log4net;
 using log4net.Core;
 using Vista.Logger;
@@ -29,6 +28,7 @@ namespace Vista
             Bind<IModificacionRespository>().To<ModificacionRepository>().InSingletonScope();
             Bind<ITipoBienRepository>().To<TipoBienRepository>().InSingletonScope();
             Bind<IRubroRepository>().To<RubroRepository>().InSingletonScope();
+            Bind<IPersonaRepository>().To<PersonaRepository>().InSingletonScope();
 
 
             Bind<IRepository<Socio>>().To<RepositoryBase<Socio>>().InSingletonScope();
@@ -37,7 +37,8 @@ namespace Vista
             Bind<IRepository<Modificacion>>().To<RepositoryBase<Modificacion>>().InSingletonScope();
             Bind<IRepository<TipoBien>>().To<RepositoryBase<TipoBien>>().InSingletonScope();
             Bind<IRepository<Rubro>>().To<RepositoryBase<Rubro>>().InSingletonScope();
-            Bind<Fachada>().ToSelf().InSingletonScope();
+            Bind<IRepository<Persona>>().To<RepositoryBase<Persona>>().InSingletonScope();
+            Bind<Fachada.Fachada>().ToSelf().InSingletonScope();
             Bind<BomberosContext>().To<BomberosContext>().InSingletonScope();
             Bind<Vista.Logger.ILogger>().To<Logger4net>().InSingletonScope();
         }
