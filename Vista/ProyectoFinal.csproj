@@ -129,7 +129,6 @@
     <Compile Include="IU\FrmEditarRubro.Designer.cs">
       <DependentUpon>FrmEditarRubro.cs</DependentUpon>
     </Compile>
-    <Compile Include="IU\FrmFiltroSocios.cs">
     <Compile Include="IU\FrmGestionPagos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,8 +179,6 @@
     <EmbeddedResource Include="IU\FrmEditarRubro.resx">
       <DependentUpon>FrmEditarRubro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IU\FrmFiltroSocios.resx">
-      <DependentUpon>FrmFiltroSocios.cs</DependentUpon>
     <EmbeddedResource Include="IU\FrmGestionPagos.resx">
       <DependentUpon>FrmGestionPagos.cs</DependentUpon>
     </EmbeddedResource>
