@@ -185,50 +185,71 @@ namespace Vista.Fachada
             return cRepositoryBasePersona.Filter(x => x.Dni == pDNI).FirstOrDefault();
         }
 
-        //public IEnumerable<Pago> getAllPagosEntreFechas(DateTime pFechaDesde, DateTime pFechaHasta)
-        //{
-        //    int mesDesde = pFechaDesde.Month;
-        //    int anioDesde = pFechaDesde.Year;
-        //    int mesHasta = pFechaHasta.Month;
-        //    int anioHasta = pFechaHasta.Year;
-
-        //    IEnumerable<Pago> listaPagos = cRepositoryBasePago.Filter(x => x.Anio >= anioDesde && x.Anio <= anioHasta
-        //                                                       && x.MesCuota >= mesDesde && x.MesCuota <= mesHasta).ToList();
-
-        //    return listaPagos;
-        //}
-
-        //public IEnumerable<Socio> findAlDiaEntreFecha(IEnumerable<Socio> listaSocios, DateTime fechaDesde, DateTime fechaHasta)
-        //{
-        //    List<Pago>
-        //    foreach(Socio bSocio in listaSocios)
-        //    {
-        //        Pago ultimoPago = cPagoRepository.getUltimoPago(bSocio);
-        //        if(ultimoPago.Anio == fechaDesde.Year && ultimoPago.Anio == fechaHasta.Year)
-        //        {
-        //            if(ultimoPago.MesCuota >= fechaDesde.Month && ultimoPago.MesCuota <= fechaHasta.Month)
-        //            {
-
-        //            }
-        //        }
-        //    }
-            
-        //}
-
-        public IEnumerable<Socio> findDeudores(IEnumerable<Socio> listaSocios)
+        public void addRubro(Rubro pRubro)
         {
-            return listaSocios.Where(x => 
-                    !cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
+            try
+            {
+                cRepositoryBaseRubro.Add(pRubro);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public int getCantidadCuotasAdeudadas(Socio pSocio)
+        public List<Rubro> getAllRubros()
         {
-            return cPagoRepository.getCantidadCuotasAdeudadas(pSocio);
+            try
+            {
+                return cRepositoryBaseRubro.GetAll().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Pago ultimaCuotaPaga(int idSocio)
+        public void deleteRubro(Rubro pRubro)
         {
-            return cPagoRepository.getUltimoPago(idSocio);
+            try
+            {
+                cRepositoryBaseRubro.DeleteById(pRubro.Id);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }        
+
+        public void updateRubro(Rubro pRubro)
+        {
+            try
+            {
+                cRepositoryBaseRubro.Update(pRubro);
+                cRepositoryBaseRubro.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
+    public IEnumerable<Socio> findDeudores(IEnumerable<Socio> listaSocios)
+    {
+        return listaSocios.Where(x =>
+                !cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
+    }
+
+    public int getCantidadCuotasAdeudadas(Socio pSocio)
+    {
+        return cPagoRepository.getCantidadCuotasAdeudadas(pSocio);
+    }
+
+    public Pago ultimaCuotaPaga(int idSocio)
+    {
+        return cPagoRepository.getUltimoPago(idSocio);
+    }
+
 }

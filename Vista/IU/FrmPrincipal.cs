@@ -33,5 +33,10 @@ namespace Vista.IU
         {
             CompositionRoot.Resolve<FrmGestionPagos>().ShowDialog();
         }
+
+        private void btnRubros_Click(object sender, EventArgs e)
+        {
+            CompositionRoot.Resolve<FrmGestionRubros>().ShowDialog();
+        }
     }
 }
