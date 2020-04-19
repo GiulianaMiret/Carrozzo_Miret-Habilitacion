@@ -7,14 +7,133 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Core.Models;
 
 namespace Vista.IU
 {
     public partial class FrmGestionPagos : Form
     {
-        public FrmGestionPagos()
+        private readonly Fachada.Fachada cFachada;
+        private readonly Vista.Logger.ILogger cLogger;
+
+        public FrmGestionPagos(Fachada.Fachada pFachada, Logger.ILogger pLogger)
         {
+            cFachada = pFachada;
+            cLogger = pLogger;
             InitializeComponent();
+        }
+
+        private void FrmGestionPagos_Load(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            lblCantidadSocios.Visible = false;
+            lblCantidadText.Visible = false;
+            lblCantidadText.Visible = false;
+            btnBuscarPagos.BackColor = Color.Gray; //Color.FromArgb(128, 128, 255);
+        }
+
+        private void numericFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void btnBuscarSocios_Click(object sender, EventArgs e)
+        {
+            IEnumerable<Socio> listaSocios = new List<Socio>();
+            if (tbNroSocio.Text != "")
+            {
+                int nroSocio = Convert.ToInt32(tbNroSocio.Text);
+                listaSocios = cFachada.findByNroSocio(nroSocio).Where(x => cFachada.esSocioActivo(x)).ToList();
+            }
+            if (tbDni.Text != "")
+            {
+                int dni = Convert.ToInt32(tbDni.Text);
+                if (listaSocios.Count() > 0)
+                {
+                    listaSocios = listaSocios.Where(x => x.Persona.Dni == dni).Where(y => cFachada.esSocioActivo(y)).ToList();
+                } else
+                {
+                    listaSocios = cFachada.getAllSocios().Where(x => x.Persona.Dni == dni).Where(y => cFachada.esSocioActivo(y)).ToList();
+                }
+            }
+            if(listaSocios.Count() <= 0)
+            {
+                listaSocios = cFachada.getAllSocios().Where(x => cFachada.esSocioActivo(x)).ToList();
+            }
+
+            this.loadDataGridViewPagos(listaSocios.OrderBy(x => x.NroSocio));
+
+        }
+
+        public void loadDataGridViewPagos(IEnumerable<Socio> pListaSocios)
+        {
+            List<DataGridViewObject> dgvObjectList = new List<DataGridViewObject>();
+            foreach (Socio bSocio in pListaSocios)
+            {
+                DataGridViewObject dgvObject = new DataGridViewObject();
+                dgvObject.NroSocio = bSocio.NroSocio;
+                dgvObject.DNI = bSocio.Persona.Dni;
+                dgvObject.Nombre = string.Concat(bSocio.Persona.Nombre, " ", bSocio.Persona.Apellido);
+                dgvObject.CuotasAdeudadas = cFachada.getCantidadCuotasAdeudadas(bSocio);
+                Pago ultimoPago = cFachada.ultimaCuotaPaga(bSocio.Id); 
+                if (ultimoPago == null)
+                {
+                    dgvObject.UltimaCuotaPaga = "No hay pagos registrados";
+                } else
+                {
+                    dgvObject.UltimaCuotaPaga = string.Concat(ultimoPago.MesCuota.ToString(), "/", ultimoPago.Anio.ToString());
+                }
+                
+                dgvObjectList.Add(dgvObject);
+            }
+
+            lblCantidadSocios.Text = pListaSocios.Count().ToString();
+            lblCantidadSocios.Visible = true;
+            lblCantidadText.Visible = true;
+
+            dgvResultadoSocios.DataSource = dgvObjectList;
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            dgvResultadoSocios.DataSource = new List<DataGridViewObject>();
+            lblCantidadSocios.Text = "-";
+            tbNroSocio.Text = "";
+            tbDni.Text = "";
+            dtFechaDesde.Value = DateTime.Now;
+            lblCantidadSocios.Visible = false;
+            lblCantidadText.Visible = false;
+        }
+
+
+
+
+
+
+        private class DataGridViewObject
+        {
+            public int NroSocio { get; set; }
+            public int DNI { get; set; }
+            public String Nombre { get; set; }
+            public int CuotasAdeudadas { get; set; }
+            public string UltimaCuotaPaga { get; set; }
+        }
+
+        private void btnSociosDeudores_Click(object sender, EventArgs e)
+        {
+            //if (rbtnAlDia.Checked && listaSocios.Count() > 0)
+            //{
+            //    listaSocios = cFachada.findAlDiaEntreFecha(listaSocios, dtFechaDesde.Value, dtFechaHasta.Value);
+            //}
+            //else if (rbtnDeudores.Checked && listaSocios.Count() > 0)
+            //{
+            //    listaSocios = cFachada.findDeudoresEntreFecha(listaSocios, dtFechaDesde.Value, dtFechaHasta.Value);
+            //}
+        }
+
+        private void btnSociosAldia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

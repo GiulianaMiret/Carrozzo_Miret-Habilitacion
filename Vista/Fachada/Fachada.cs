@@ -164,10 +164,14 @@ namespace Vista.Fachada
         {
             try
             {
-                pSocio.MotivoRenuncia = null;
-                pSocio.FechaRenuncia = new DateTime(0001, 01, 01, 00, 00, 00);
-                updatePersona(pSocio.Persona);
-                cRepositoryBaseSocio.Add(pSocio);
+                Socio socioNuevo = new Socio();
+                socioNuevo.Persona = pSocio.Persona;
+                socioNuevo.NroSocio = pSocio.NroSocio;
+                socioNuevo.FechaIngreso = pSocio.FechaIngreso;
+                socioNuevo.MotivoRenuncia = null;
+                socioNuevo.FechaRenuncia = new DateTime(0001, 01, 01, 00, 00, 00);
+                updatePersona(socioNuevo.Persona);
+                cRepositoryBaseSocio.Add(socioNuevo);
                 cRepositoryBaseSocio.SaveChanges();
             }
             catch (Exception e)
@@ -179,6 +183,52 @@ namespace Vista.Fachada
         public Persona findPersonaByDni(int pDNI)
         {
             return cRepositoryBasePersona.Filter(x => x.Dni == pDNI).FirstOrDefault();
+        }
+
+        //public IEnumerable<Pago> getAllPagosEntreFechas(DateTime pFechaDesde, DateTime pFechaHasta)
+        //{
+        //    int mesDesde = pFechaDesde.Month;
+        //    int anioDesde = pFechaDesde.Year;
+        //    int mesHasta = pFechaHasta.Month;
+        //    int anioHasta = pFechaHasta.Year;
+
+        //    IEnumerable<Pago> listaPagos = cRepositoryBasePago.Filter(x => x.Anio >= anioDesde && x.Anio <= anioHasta
+        //                                                       && x.MesCuota >= mesDesde && x.MesCuota <= mesHasta).ToList();
+
+        //    return listaPagos;
+        //}
+
+        //public IEnumerable<Socio> findAlDiaEntreFecha(IEnumerable<Socio> listaSocios, DateTime fechaDesde, DateTime fechaHasta)
+        //{
+        //    List<Pago>
+        //    foreach(Socio bSocio in listaSocios)
+        //    {
+        //        Pago ultimoPago = cPagoRepository.getUltimoPago(bSocio);
+        //        if(ultimoPago.Anio == fechaDesde.Year && ultimoPago.Anio == fechaHasta.Year)
+        //        {
+        //            if(ultimoPago.MesCuota >= fechaDesde.Month && ultimoPago.MesCuota <= fechaHasta.Month)
+        //            {
+
+        //            }
+        //        }
+        //    }
+            
+        //}
+
+        public IEnumerable<Socio> findDeudores(IEnumerable<Socio> listaSocios)
+        {
+            return listaSocios.Where(x => 
+                    !cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
+        }
+
+        public int getCantidadCuotasAdeudadas(Socio pSocio)
+        {
+            return cPagoRepository.getCantidadCuotasAdeudadas(pSocio);
+        }
+
+        public Pago ultimaCuotaPaga(int idSocio)
+        {
+            return cPagoRepository.getUltimoPago(idSocio);
         }
     }
 }

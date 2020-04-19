@@ -165,7 +165,7 @@ namespace Vista.IU
                 if (!cFachada.esSocioActivo(socio))
                 {
                     List<Socio> listaAux = cFachada.getAllSocios().Where(x => x.Persona == socio.Persona 
-                                                && cFachada.esSocioActivo(x) == true).ToList();
+                                                && cFachada.esSocioActivo(x)).ToList();
                     if(listaAux.Count() > 0)
                     {
                         MessageBox.Show("El socio con DNI: "+socio.Persona.Dni.ToString()+" ya está Activo",

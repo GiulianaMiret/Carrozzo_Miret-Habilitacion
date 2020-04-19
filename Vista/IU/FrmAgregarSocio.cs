@@ -110,6 +110,7 @@ namespace Vista.IU
                     }
                 } else
                 {
+                    persona = new Persona();
                     persona.Apellido = tbApellido.Text;
                     persona.Nombre = tbNombre.Text;
                     persona.Dni = pDNI;
