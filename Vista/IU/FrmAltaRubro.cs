@@ -1,5 +1,4 @@
-﻿using Controlador;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +12,10 @@ namespace Vista.IU
 {
     public partial class FrmAltaRubro : Form
     {
-        private readonly Fachada cFachada;
+        private readonly Fachada.Fachada cFachada;
         private readonly Vista.Logger.ILogger cLogger;
 
-        public FrmAltaRubro(Fachada pFachada, Logger.ILogger pLogger)
+        public FrmAltaRubro(Fachada.Fachada pFachada, Logger.ILogger pLogger)
         {
             cFachada = pFachada;
             cLogger = pLogger;

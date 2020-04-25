@@ -185,6 +185,28 @@ namespace Vista.Fachada
             return cRepositoryBasePersona.Filter(x => x.Dni == pDNI).FirstOrDefault();
         }
 
+        public IEnumerable<Socio> findDeudores(IEnumerable<Socio> listasocios)
+        {
+            return listasocios.Where(x =>
+                    !cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
+        }
+
+        public IEnumerable<Socio> findSociosAlDia(IEnumerable<Socio> listasocios)
+        {
+            return listasocios.Where(x =>
+                    cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
+        }
+
+        public int getCantidadCuotasAdeudadas(Socio pSocio)
+        {
+            return cPagoRepository.getCantidadCuotasAdeudadas(pSocio);
+        }
+
+        public Pago ultimaCuotaPaga(int idSocio)
+        {
+            return cPagoRepository.getUltimoPago(idSocio);
+        }
+
         public void addRubro(Rubro pRubro)
         {
             try
@@ -235,21 +257,7 @@ namespace Vista.Fachada
                 throw ex;
             }
         }
-    }
-    public IEnumerable<Socio> findDeudores(IEnumerable<Socio> listaSocios)
-    {
-        return listaSocios.Where(x =>
-                !cPagoRepository.esCuotaPaga(DateTime.Now.Month, DateTime.Now.Year, x.Id)).ToList();
-    }
 
-    public int getCantidadCuotasAdeudadas(Socio pSocio)
-    {
-        return cPagoRepository.getCantidadCuotasAdeudadas(pSocio);
-    }
 
-    public Pago ultimaCuotaPaga(int idSocio)
-    {
-        return cPagoRepository.getUltimoPago(idSocio);
     }
-
 }

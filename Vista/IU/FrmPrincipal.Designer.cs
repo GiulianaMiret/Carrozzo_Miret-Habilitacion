@@ -40,7 +40,7 @@
             this.btnSocios.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSocios.Image = ((System.Drawing.Image)(resources.GetObject("btnSocios.Image")));
             this.btnSocios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSocios.Location = new System.Drawing.Point(660, 55);
+            this.btnSocios.Location = new System.Drawing.Point(668, 55);
             this.btnSocios.Name = "btnSocios";
             this.btnSocios.Size = new System.Drawing.Size(265, 70);
             this.btnSocios.TabIndex = 0;
@@ -55,7 +55,7 @@
             this.btnPagos.Font = new System.Drawing.Font("Lucida Fax", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagos.Image = ((System.Drawing.Image)(resources.GetObject("btnPagos.Image")));
             this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagos.Location = new System.Drawing.Point(660, 172);
+            this.btnPagos.Location = new System.Drawing.Point(668, 168);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.Size = new System.Drawing.Size(265, 70);
             this.btnPagos.TabIndex = 1;
@@ -66,11 +66,14 @@
             // 
             // btnRubros
             // 
-            this.btnRubros.Location = new System.Drawing.Point(380, 115);
+            this.btnRubros.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRubros.Font = new System.Drawing.Font("Lucida Fax", 14.25F);
+            this.btnRubros.Location = new System.Drawing.Point(668, 285);
             this.btnRubros.Name = "btnRubros";
-            this.btnRubros.Size = new System.Drawing.Size(114, 23);
+            this.btnRubros.Size = new System.Drawing.Size(265, 70);
             this.btnRubros.TabIndex = 1;
-            this.btnRubros.Text = "Rubros";
+            this.btnRubros.Text = "Rubros    ";
+            this.btnRubros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRubros.UseVisualStyleBackColor = true;
             this.btnRubros.Click += new System.EventHandler(this.btnRubros_Click);
             // 
@@ -80,9 +83,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1031, 450);
+            this.ClientSize = new System.Drawing.Size(816, 450);
             this.Controls.Add(this.btnPagos);
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnRubros);
             this.Controls.Add(this.btnSocios);
             this.DoubleBuffered = true;

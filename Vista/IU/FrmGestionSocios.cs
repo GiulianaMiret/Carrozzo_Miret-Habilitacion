@@ -193,10 +193,6 @@ namespace Vista.IU
                                 case DialogResult.No:
                                     break;
                             }
-
-
-
-
                         } else
                         {
                             FrmModificarSocio frmModificarSocio = CompositionRoot.Resolve<FrmModificarSocio>();

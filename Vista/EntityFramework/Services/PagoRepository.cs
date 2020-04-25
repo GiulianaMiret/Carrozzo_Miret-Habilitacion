@@ -50,7 +50,13 @@ namespace Vista.EntityFramework.Services
                 }
                 if(DateTime.Now.Year == anioPago)
                 {
-                    cuotas = DateTime.Now.Month - mesPago;
+                    if(DateTime.Now.Month == mesPago)
+                    {
+                        cuotas = 1;
+                    } else
+                    {
+                        cuotas = DateTime.Now.Month - mesPago;
+                    }
                 } else
                 {
                     int difAnio = DateTime.Now.Year - anioPago;
